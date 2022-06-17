@@ -7,7 +7,9 @@ use App\Ship\Parents\Models\Model as ParentModel;
 class DriveUser extends ParentModel
 {
     protected $fillable = [
-
+        'drive_id',
+        'user_id',
+        'is_maintainer',
     ];
 
     protected $hidden = [
