@@ -29,4 +29,20 @@ class Drive extends ParentModel
      * A resource key to be used in the serialized responses.
      */
     protected string $resourceKey = 'Drive';
+
+    public function points()
+    {
+        return $this->hasMany(DrivePoint::class);
+    }
+
+    public function pointsSortByPosition()
+    {
+        return $this->hasMany(DrivePoint::class)->orderBy('position');
+    }
+
+    public function setPrice(int $price) :void
+    {
+        $this->price = $price;
+        $this->save();
+    }
 }

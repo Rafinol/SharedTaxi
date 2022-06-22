@@ -35,7 +35,8 @@ class CreateDrivePointRequest extends ParentRequest
     public function rules(): array
     {
         return [
-            // 'id' => 'required',
+            'drive_id' => 'required|integer',
+            'point' => 'required|string',
         ];
     }
 

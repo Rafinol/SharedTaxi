@@ -2,7 +2,7 @@
 
 namespace App\Containers\AppSection\Drive\UI\API\Controllers;
 
-use App\Containers\AppSection\Drive\Actions\CreateDrivePointAction;
+use App\Containers\AppSection\Drive\Actions\CRUD\CreateDrivePointAction;
 use App\Containers\AppSection\Drive\UI\API\Requests\CreateDrivePointRequest;
 use App\Containers\AppSection\Drive\UI\API\Transformers\DrivePointTransformer;
 use App\Ship\Parents\Controllers\ApiController;

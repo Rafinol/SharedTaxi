@@ -23,7 +23,6 @@ class CreateDriveUserTask extends ParentTask
         try {
             return $this->repository->create($data);
         } catch (Exception $e) {
-            var_dump($e->getMessage());exit;
             throw new CreateResourceFailedException();
         }
     }

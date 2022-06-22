@@ -1,0 +1,445 @@
+{
+	"info": {
+		"_postman_id": "0222178a-563f-4dae-a91f-ab7241a87d99",
+		"name": "TaxiShare",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9319048"
+	},
+	"item": [
+		{
+			"name": "Authtorization (Get Access Token)",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "CONTENT_TYPE",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "username",
+							"value": "admin@admin.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "h5kOoRO4STshsN4gFUjJ7IijTj6xT9dTQuuxAfoF",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://api.taxi.test:88/v1/oauth/token",
+					"protocol": "http",
+					"host": [
+						"api",
+						"taxi",
+						"test"
+					],
+					"port": "88",
+					"path": [
+						"v1",
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "admin@admin.com",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"disabled": true
+						},
+						{
+							"key": "client_id",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "client_secret",
+							"value": "MZUMDSS8IYIlgP8q8JuvnP7svvSnQ8EYBz8hrg8Y",
+							"disabled": true
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiZmUxNTY3ZGVkM2YwZjc4M2UyMzc5MmJiNjU1YWQ5N2QyNzhkMjgyYjQzYTdmMjExYjQ5YmJkMGJkOGEzNmNlMTFiYWZjNThhODEzMThkMGYiLCJpYXQiOjE2NTU4ODc1MjcuODA0NzUyLCJuYmYiOjE2NTU4ODc1MjcuODA0NzYsImV4cCI6MTY1NTk3MzkyNy43NTE0NzMsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.D24yh92Y1R1dqZXzCpn9ltGBQCbKvH5hJ6I9MPhC_ElJdoKA7sj4ntqWrnkkpeKyFdgeDJCXagGSWXHmvgkS7cOm1qOduADb63hoycW1zRn4UuQfzqzgayiuJY3j-memxiiH4NkyUzNPc8H-kewS4gL_v67cZEa-ucRknR0PcSm1XgA2IdDMugGGB7BcN6Je56A9FGRo6_RGHnvtWQ4XMfhw3dhUB_qgMtrDPRyn5LZdyrGCkHmkgO2k8X_S_AtkCVlT1oBgr_HNosEMHF8bR0dH-szeNf627MyX3ga7SPQ9c7OpsCMMVqFkhX4rg2D5ojHnHn0ySx_gTz5l_4pnRG3oda-CLcHqPj7sRUXvYfmaYK4zd6RKOPCuPigku23Joc1WKmnzod8av-SESrfS7Vj1L93OzcU5qnS9F5T-3Fvg9ql5be8O5ye_a5qDhDRdDFA3R03b9AlerpS8FyW4ijNtHAM4n4OuFgaZk6_VnGSTklBmNhbhbdTJwDit4HtgFPU3Ezcobk_y6aGBTY6Gt2Ws_Zf9ou0eEw2E5pR1RNi8_gabqy5Rc7eE5bWyowpdY31Y8UOy6kZEl9WWgL_HnIIuBYHX_pT0TJi4_Y1kIjM5gna7jHRous7pP2jfwxrG6x-WxH9G_2AwWK7y3uqh2F6IQlqbt1o7kuhsBa6vTDc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "departure_address",
+							"value": "ул. Васильченко 11",
+							"type": "text"
+						},
+						{
+							"key": "arrival_address",
+							"value": "Парк горького",
+							"type": "text"
+						},
+						{
+							"key": "earliest_time",
+							"value": "20:00",
+							"type": "text"
+						},
+						{
+							"key": "latest_time",
+							"value": "21:00",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://api.taxi.test:88/v1/orders",
+					"protocol": "http",
+					"host": [
+						"api",
+						"taxi",
+						"test"
+					],
+					"port": "88",
+					"path": [
+						"v1",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "oauth_client",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Orders",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiZmUxNTY3ZGVkM2YwZjc4M2UyMzc5MmJiNjU1YWQ5N2QyNzhkMjgyYjQzYTdmMjExYjQ5YmJkMGJkOGEzNmNlMTFiYWZjNThhODEzMThkMGYiLCJpYXQiOjE2NTU4ODc1MjcuODA0NzUyLCJuYmYiOjE2NTU4ODc1MjcuODA0NzYsImV4cCI6MTY1NTk3MzkyNy43NTE0NzMsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.D24yh92Y1R1dqZXzCpn9ltGBQCbKvH5hJ6I9MPhC_ElJdoKA7sj4ntqWrnkkpeKyFdgeDJCXagGSWXHmvgkS7cOm1qOduADb63hoycW1zRn4UuQfzqzgayiuJY3j-memxiiH4NkyUzNPc8H-kewS4gL_v67cZEa-ucRknR0PcSm1XgA2IdDMugGGB7BcN6Je56A9FGRo6_RGHnvtWQ4XMfhw3dhUB_qgMtrDPRyn5LZdyrGCkHmkgO2k8X_S_AtkCVlT1oBgr_HNosEMHF8bR0dH-szeNf627MyX3ga7SPQ9c7OpsCMMVqFkhX4rg2D5ojHnHn0ySx_gTz5l_4pnRG3oda-CLcHqPj7sRUXvYfmaYK4zd6RKOPCuPigku23Joc1WKmnzod8av-SESrfS7Vj1L93OzcU5qnS9F5T-3Fvg9ql5be8O5ye_a5qDhDRdDFA3R03b9AlerpS8FyW4ijNtHAM4n4OuFgaZk6_VnGSTklBmNhbhbdTJwDit4HtgFPU3Ezcobk_y6aGBTY6Gt2Ws_Zf9ou0eEw2E5pR1RNi8_gabqy5Rc7eE5bWyowpdY31Y8UOy6kZEl9WWgL_HnIIuBYHX_pT0TJi4_Y1kIjM5gna7jHRous7pP2jfwxrG6x-WxH9G_2AwWK7y3uqh2F6IQlqbt1o7kuhsBa6vTDc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://api.taxi.test:88/v1/orders",
+					"protocol": "http",
+					"host": [
+						"api",
+						"taxi",
+						"test"
+					],
+					"port": "88",
+					"path": [
+						"v1",
+						"orders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "JoinToOrder",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiZmUxNTY3ZGVkM2YwZjc4M2UyMzc5MmJiNjU1YWQ5N2QyNzhkMjgyYjQzYTdmMjExYjQ5YmJkMGJkOGEzNmNlMTFiYWZjNThhODEzMThkMGYiLCJpYXQiOjE2NTU4ODc1MjcuODA0NzUyLCJuYmYiOjE2NTU4ODc1MjcuODA0NzYsImV4cCI6MTY1NTk3MzkyNy43NTE0NzMsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.D24yh92Y1R1dqZXzCpn9ltGBQCbKvH5hJ6I9MPhC_ElJdoKA7sj4ntqWrnkkpeKyFdgeDJCXagGSWXHmvgkS7cOm1qOduADb63hoycW1zRn4UuQfzqzgayiuJY3j-memxiiH4NkyUzNPc8H-kewS4gL_v67cZEa-ucRknR0PcSm1XgA2IdDMugGGB7BcN6Je56A9FGRo6_RGHnvtWQ4XMfhw3dhUB_qgMtrDPRyn5LZdyrGCkHmkgO2k8X_S_AtkCVlT1oBgr_HNosEMHF8bR0dH-szeNf627MyX3ga7SPQ9c7OpsCMMVqFkhX4rg2D5ojHnHn0ySx_gTz5l_4pnRG3oda-CLcHqPj7sRUXvYfmaYK4zd6RKOPCuPigku23Joc1WKmnzod8av-SESrfS7Vj1L93OzcU5qnS9F5T-3Fvg9ql5be8O5ye_a5qDhDRdDFA3R03b9AlerpS8FyW4ijNtHAM4n4OuFgaZk6_VnGSTklBmNhbhbdTJwDit4HtgFPU3Ezcobk_y6aGBTY6Gt2Ws_Zf9ou0eEw2E5pR1RNi8_gabqy5Rc7eE5bWyowpdY31Y8UOy6kZEl9WWgL_HnIIuBYHX_pT0TJi4_Y1kIjM5gna7jHRous7pP2jfwxrG6x-WxH9G_2AwWK7y3uqh2F6IQlqbt1o7kuhsBa6vTDc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "point",
+							"value": "ул. Васильченко 11",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://api.taxi.test:88/v1/orders/1/join?point=Васильчиенко, 12",
+					"protocol": "http",
+					"host": [
+						"api",
+						"taxi",
+						"test"
+					],
+					"port": "88",
+					"path": [
+						"v1",
+						"orders",
+						"1",
+						"join"
+					],
+					"query": [
+						{
+							"key": "point",
+							"value": "Васильчиенко, 12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Drives",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiZmUxNTY3ZGVkM2YwZjc4M2UyMzc5MmJiNjU1YWQ5N2QyNzhkMjgyYjQzYTdmMjExYjQ5YmJkMGJkOGEzNmNlMTFiYWZjNThhODEzMThkMGYiLCJpYXQiOjE2NTU4ODc1MjcuODA0NzUyLCJuYmYiOjE2NTU4ODc1MjcuODA0NzYsImV4cCI6MTY1NTk3MzkyNy43NTE0NzMsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.D24yh92Y1R1dqZXzCpn9ltGBQCbKvH5hJ6I9MPhC_ElJdoKA7sj4ntqWrnkkpeKyFdgeDJCXagGSWXHmvgkS7cOm1qOduADb63hoycW1zRn4UuQfzqzgayiuJY3j-memxiiH4NkyUzNPc8H-kewS4gL_v67cZEa-ucRknR0PcSm1XgA2IdDMugGGB7BcN6Je56A9FGRo6_RGHnvtWQ4XMfhw3dhUB_qgMtrDPRyn5LZdyrGCkHmkgO2k8X_S_AtkCVlT1oBgr_HNosEMHF8bR0dH-szeNf627MyX3ga7SPQ9c7OpsCMMVqFkhX4rg2D5ojHnHn0ySx_gTz5l_4pnRG3oda-CLcHqPj7sRUXvYfmaYK4zd6RKOPCuPigku23Joc1WKmnzod8av-SESrfS7Vj1L93OzcU5qnS9F5T-3Fvg9ql5be8O5ye_a5qDhDRdDFA3R03b9AlerpS8FyW4ijNtHAM4n4OuFgaZk6_VnGSTklBmNhbhbdTJwDit4HtgFPU3Ezcobk_y6aGBTY6Gt2Ws_Zf9ou0eEw2E5pR1RNi8_gabqy5Rc7eE5bWyowpdY31Y8UOy6kZEl9WWgL_HnIIuBYHX_pT0TJi4_Y1kIjM5gna7jHRous7pP2jfwxrG6x-WxH9G_2AwWK7y3uqh2F6IQlqbt1o7kuhsBa6vTDc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://api.taxi.test:88/v1/drives",
+					"protocol": "http",
+					"host": [
+						"api",
+						"taxi",
+						"test"
+					],
+					"port": "88",
+					"path": [
+						"v1",
+						"drives"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get calculate price",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiZmUxNTY3ZGVkM2YwZjc4M2UyMzc5MmJiNjU1YWQ5N2QyNzhkMjgyYjQzYTdmMjExYjQ5YmJkMGJkOGEzNmNlMTFiYWZjNThhODEzMThkMGYiLCJpYXQiOjE2NTU4ODc1MjcuODA0NzUyLCJuYmYiOjE2NTU4ODc1MjcuODA0NzYsImV4cCI6MTY1NTk3MzkyNy43NTE0NzMsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.D24yh92Y1R1dqZXzCpn9ltGBQCbKvH5hJ6I9MPhC_ElJdoKA7sj4ntqWrnkkpeKyFdgeDJCXagGSWXHmvgkS7cOm1qOduADb63hoycW1zRn4UuQfzqzgayiuJY3j-memxiiH4NkyUzNPc8H-kewS4gL_v67cZEa-ucRknR0PcSm1XgA2IdDMugGGB7BcN6Je56A9FGRo6_RGHnvtWQ4XMfhw3dhUB_qgMtrDPRyn5LZdyrGCkHmkgO2k8X_S_AtkCVlT1oBgr_HNosEMHF8bR0dH-szeNf627MyX3ga7SPQ9c7OpsCMMVqFkhX4rg2D5ojHnHn0ySx_gTz5l_4pnRG3oda-CLcHqPj7sRUXvYfmaYK4zd6RKOPCuPigku23Joc1WKmnzod8av-SESrfS7Vj1L93OzcU5qnS9F5T-3Fvg9ql5be8O5ye_a5qDhDRdDFA3R03b9AlerpS8FyW4ijNtHAM4n4OuFgaZk6_VnGSTklBmNhbhbdTJwDit4HtgFPU3Ezcobk_y6aGBTY6Gt2Ws_Zf9ou0eEw2E5pR1RNi8_gabqy5Rc7eE5bWyowpdY31Y8UOy6kZEl9WWgL_HnIIuBYHX_pT0TJi4_Y1kIjM5gna7jHRous7pP2jfwxrG6x-WxH9G_2AwWK7y3uqh2F6IQlqbt1o7kuhsBa6vTDc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://api.taxi.test:88/v1/calculator/prices?price=280&addresses[]=Горького, 115&addresses[]=Морозова, 1&addresses[]=Корстон",
+					"protocol": "http",
+					"host": [
+						"api",
+						"taxi",
+						"test"
+					],
+					"port": "88",
+					"path": [
+						"v1",
+						"calculator",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "price",
+							"value": "280"
+						},
+						{
+							"key": "addresses[]",
+							"value": "Горького, 115"
+						},
+						{
+							"key": "addresses[]",
+							"value": "Морозова, 1"
+						},
+						{
+							"key": "addresses[]",
+							"value": "Корстон"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Drive",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiZmUxNTY3ZGVkM2YwZjc4M2UyMzc5MmJiNjU1YWQ5N2QyNzhkMjgyYjQzYTdmMjExYjQ5YmJkMGJkOGEzNmNlMTFiYWZjNThhODEzMThkMGYiLCJpYXQiOjE2NTU4ODc1MjcuODA0NzUyLCJuYmYiOjE2NTU4ODc1MjcuODA0NzYsImV4cCI6MTY1NTk3MzkyNy43NTE0NzMsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.D24yh92Y1R1dqZXzCpn9ltGBQCbKvH5hJ6I9MPhC_ElJdoKA7sj4ntqWrnkkpeKyFdgeDJCXagGSWXHmvgkS7cOm1qOduADb63hoycW1zRn4UuQfzqzgayiuJY3j-memxiiH4NkyUzNPc8H-kewS4gL_v67cZEa-ucRknR0PcSm1XgA2IdDMugGGB7BcN6Je56A9FGRo6_RGHnvtWQ4XMfhw3dhUB_qgMtrDPRyn5LZdyrGCkHmkgO2k8X_S_AtkCVlT1oBgr_HNosEMHF8bR0dH-szeNf627MyX3ga7SPQ9c7OpsCMMVqFkhX4rg2D5ojHnHn0ySx_gTz5l_4pnRG3oda-CLcHqPj7sRUXvYfmaYK4zd6RKOPCuPigku23Joc1WKmnzod8av-SESrfS7Vj1L93OzcU5qnS9F5T-3Fvg9ql5be8O5ye_a5qDhDRdDFA3R03b9AlerpS8FyW4ijNtHAM4n4OuFgaZk6_VnGSTklBmNhbhbdTJwDit4HtgFPU3Ezcobk_y6aGBTY6Gt2Ws_Zf9ou0eEw2E5pR1RNi8_gabqy5Rc7eE5bWyowpdY31Y8UOy6kZEl9WWgL_HnIIuBYHX_pT0TJi4_Y1kIjM5gna7jHRous7pP2jfwxrG6x-WxH9G_2AwWK7y3uqh2F6IQlqbt1o7kuhsBa6vTDc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://api.taxi.test:88/v1/drives/aVbqKPzWy2pj0JZg?price=260&car_number=877",
+					"protocol": "http",
+					"host": [
+						"api",
+						"taxi",
+						"test"
+					],
+					"port": "88",
+					"path": [
+						"v1",
+						"drives",
+						"aVbqKPzWy2pj0JZg"
+					],
+					"query": [
+						{
+							"key": "price",
+							"value": "260"
+						},
+						{
+							"key": "car_number",
+							"value": "877"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

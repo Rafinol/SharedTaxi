@@ -1,0 +1,6 @@
+{
+    "name": "apiato/pricecalculator",
+    "description": "PriceCalculator Container for apiato.",
+    "require": {
+    }
+}

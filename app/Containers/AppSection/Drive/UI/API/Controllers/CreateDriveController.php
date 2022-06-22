@@ -4,7 +4,7 @@ namespace App\Containers\AppSection\Drive\UI\API\Controllers;
 
 use Apiato\Core\Exceptions\IncorrectIdException;
 use Apiato\Core\Exceptions\InvalidTransformerException;
-use App\Containers\AppSection\Drive\Actions\CreateDriveAction;
+use App\Containers\AppSection\Drive\Actions\CRUD\CreateDriveAction;
 use App\Containers\AppSection\Drive\UI\API\Requests\CreateDriveRequest;
 use App\Containers\AppSection\Drive\UI\API\Transformers\DriveTransformer;
 use App\Ship\Exceptions\CreateResourceFailedException;

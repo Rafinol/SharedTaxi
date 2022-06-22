@@ -8,7 +8,7 @@ class DrivePoint extends ParentModel
 {
     protected $fillable = [
         'drive_id',
-        'point',
+        'address',
         'position',
     ];
 

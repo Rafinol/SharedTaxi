@@ -29,7 +29,6 @@ class CreateDrivePointTask extends ParentTask
             return $this->repository->create($data);
 
         } catch (Exception $e) {
-            var_dump($e->getMessage());exit;
             throw new CreateResourceFailedException();
         }
     }

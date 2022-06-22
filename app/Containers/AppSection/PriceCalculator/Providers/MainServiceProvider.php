@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Containers\AppSection\Drive\Providers;
+namespace App\Containers\AppSection\PriceCalculator\Providers;
 
+use App\Containers\AppSection\PriceCalculator\Services\Map\MapService;
+use App\Containers\AppSection\PriceCalculator\Services\Map\MockMapService;
 use App\Ship\Parents\Providers\MainServiceProvider as ParentMainServiceProvider;
 
 /**
@@ -31,5 +33,7 @@ class MainServiceProvider extends ParentMainServiceProvider
         parent::register();
 
         // $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
+
+        $this->app->bind(MapService::class, MockMapService::class);
     }
 }

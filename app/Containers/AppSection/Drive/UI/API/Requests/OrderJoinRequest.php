@@ -4,7 +4,7 @@ namespace App\Containers\AppSection\Drive\UI\API\Requests;
 
 use App\Ship\Parents\Requests\Request as ParentRequest;
 
-class UpdateDriveRequest extends ParentRequest
+class OrderJoinRequest extends ParentRequest
 {
     /**
      * Define which Roles and/or Permissions has access to this request.
@@ -18,7 +18,7 @@ class UpdateDriveRequest extends ParentRequest
      * Id's that needs decoding before applying the validation rules.
      */
     protected array $decode = [
-        'id',
+        // 'id',
     ];
 
     /**
@@ -26,7 +26,7 @@ class UpdateDriveRequest extends ParentRequest
      * validation rules on them and allows accessing them like request data.
      */
     protected array $urlParameters = [
-        'id',
+        // 'id',
     ];
 
     /**
@@ -35,10 +35,7 @@ class UpdateDriveRequest extends ParentRequest
     public function rules(): array
     {
         return [
-            'price' => 'integer',
-            'car_number' => 'string',
-            'car_model' => 'string',
-            'car_color' => 'string',
+             'point' => 'string',
         ];
     }
 

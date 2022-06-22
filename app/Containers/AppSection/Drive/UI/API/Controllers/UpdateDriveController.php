@@ -23,7 +23,9 @@ class UpdateDriveController extends ApiController
      */
     public function updateDrive(UpdateDriveRequest $request): array
     {
-        $drive = app(UpdateDriveAction::class)->run($request);
+        $data = $request->input();
+        $data['id'] = $request->id;
+        $drive = app(UpdateDriveAction::class)->run($data);
 
         return $this->transform($drive, DriveTransformer::class);
     }

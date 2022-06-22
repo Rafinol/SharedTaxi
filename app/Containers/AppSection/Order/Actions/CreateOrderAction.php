@@ -12,7 +12,6 @@ use App\Ship\Parents\Actions\Action as ParentAction;
 class CreateOrderAction extends ParentAction
 {
     /**
-     * @param CreateOrderRequest $request
      * @return Order
      * @throws CreateResourceFailedException
      * @throws IncorrectIdException

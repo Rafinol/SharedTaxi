@@ -2,6 +2,7 @@
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;
+//var_dump($_POST);exit;
 
 define('LARAVEL_START', microtime(true));
 
