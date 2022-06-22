@@ -49,7 +49,7 @@ class OrderJoinAction extends ParentAction
             }
             $createDrivePointTask->run([
                 'drive_id' => $drive_id,
-                'point' => $address
+                'address' => $address
             ]);
         }
     }

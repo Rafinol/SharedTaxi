@@ -22,13 +22,13 @@ class UpdateDriveAction extends ParentAction
      */
     public function run(array $data): Drive
     {
-        $drive = Drive::whereId($data['id'])->firstOrFail();
+        $drive = Drive::findOrFail($data['id']);
         $price = $data['price'];
         $old_price = $drive->price;
         $drive = app(UpdateDriveTask::class)->run($data, $data['id']);
         if($old_price != $price){
             $points = $drive->pointsSortByPosition;
-            $addresses = $points->pluck('point')->toArray();
+            $addresses = $points->pluck('address')->toArray();
 
             $rides = app(CalculatePriceSubAction::class)->run($price, $addresses);
             app(UpdateDrivePointPriseViaRidesTask::class)->run($rides, $points->all());

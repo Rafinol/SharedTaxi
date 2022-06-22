@@ -14,7 +14,7 @@ class CreateDrivePointController extends ApiController
     {
         $data = [
             'drive_id' => $request->drive_id,
-            'point' => $request->point,
+            'address' => $request->point,
         ];
         $point = app(CreateDrivePointAction::class)->run($data);
 
