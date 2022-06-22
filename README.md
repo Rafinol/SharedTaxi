@@ -8,4 +8,5 @@
 </p>
 
 <p>In the AppSection (app/Containers/AppSection) you will find postman.json file. You can load it into Postman app to call requests.</p>
+<p>You need to generate client_id and client_secret at first. <b>php artisan passport:client --password</b></p>
 <p>Use the <b> php artisan test</b> command to run the unit tests</p>

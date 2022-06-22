@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\AppSection\Drive\Actions\CRUD;
+namespace App\Containers\AppSection\Drive\Actions;
 
 use App\Containers\AppSection\Drive\Models\Drive;
 use App\Containers\AppSection\Drive\Tasks\FindDriveByIdTask;

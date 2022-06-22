@@ -2,7 +2,6 @@
 
 namespace App\Containers\AppSection\PriceCalculator\Actions\SubActions;
 
-use App\Containers\AppSection\PriceCalculator\DTO\CalculatorPriceRequestDTO;
 use App\Containers\AppSection\PriceCalculator\DTO\RideDTO;
 use App\Containers\AppSection\PriceCalculator\DTO\RouteDTO;
 use App\Containers\AppSection\PriceCalculator\Tasks\CalculatePriceTask;
@@ -11,14 +10,11 @@ use Symfony\Component\HttpFoundation\Exception\BadRequestException;
 
 class CalculatePriceSubAction
 {
-    public function run(CalculatorPriceRequestDTO $data) :array
+    public function run(int $drivePrice, array $addresses) :array
     {
-        if(count($data->addresses) < 2){
+        if(count($addresses) < 2){
             throw new BadRequestException('Minimum 2 address require');
         }
-
-        $addresses = $data->addresses;
-        $drivePrice = $data->price;
 
         $rides = [];
 
@@ -26,7 +22,7 @@ class CalculatePriceSubAction
         $commonRoute = app(GetRouteTask::class)
             ->run($addresses[0], last($addresses));
 
-        $countRoutes = count($data->addresses)-1;
+        $countRoutes = count($addresses)-1;
         for ($i=0; $i < $countRoutes; $i++){
 
             /**@var $route RouteDTO*/

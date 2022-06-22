@@ -8,46 +8,65 @@ use App\Containers\AppSection\Drive\Tasks\CreateDriveTask;
 use App\Containers\AppSection\Drive\Tasks\CreateDriveUserTask;
 use App\Containers\AppSection\Order\Models\Order;
 use App\Ship\Parents\Actions\Action as ParentAction;
-use Illuminate\Support\Facades\Auth;
 
 class OrderJoinAction extends ParentAction
 {
     public function run(array $data) :Drive
     {
         $orderId = $data['order_id'];
-        $order = Order::whereId($orderId)->firstOrFail();
-        $additional_point = $data['point'];
-        $user_id = $data['user_id'];
+        $userId = $data['user_id'];
+        $joiningAddress = $data['point'];
 
-        /** @var Drive */
-        $drive = app(CreateDriveTask::class)->run([]);
+        /** @var $order Order*/
+        $order = Order::findOrFail($orderId);
 
-        app(CreateDrivePointTask::class)->run([
-            'drive_id' => $drive->id,
-            'point' => $order->departure_address
+        $drive = $this->createDrive();
+
+        $this->addPointsToDrive($drive->id, [
+            $order->departure_address,
+            $order->arrival_address,
+            $joiningAddress
         ]);
-        app(CreateDrivePointTask::class)->run([
-            'drive_id' => $drive->id,
-            'point' => $order->arrival_address
-        ]);
-        if($additional_point){
-            app(CreateDrivePointTask::class)->run([
-                'drive_id' => $drive->id,
-                'point' => $additional_point
+
+        $this->addUsersToDrive($drive->id, $order->user_id, $userId);
+
+        return $drive;
+    }
+
+    private function createDrive() :Drive
+    {
+        /** @var $drive Drive */
+        return app(CreateDriveTask::class)->run([]);
+    }
+
+    private function addPointsToDrive(int $drive_id, array $addresses) :void
+    {
+        $createDrivePointTask = app(CreateDrivePointTask::class);
+
+        foreach ($addresses as $address){
+            if(!$address){
+                continue;
+            }
+            $createDrivePointTask->run([
+                'drive_id' => $drive_id,
+                'point' => $address
             ]);
         }
+    }
 
-        app(CreateDriveUserTask::class)->run([
-            'drive_id' => $drive->id,
-            'user_id' => $order->user_id,
+    private function addUsersToDrive(int $drive_id, int $main_user_id, $user_id) :void
+    {
+        $createDriveUserTask = app(CreateDriveUserTask::class);
+
+        $createDriveUserTask->run([
+            'drive_id' => $drive_id,
+            'user_id' => $main_user_id,
             'is_maintainer' => 1,
         ]);
-        app(CreateDriveUserTask::class)->run([
-            'drive_id' => $drive->id,
+        $createDriveUserTask->run([
+            'drive_id' => $drive_id,
             'user_id' => $user_id,
             'is_maintainer' => 0,
         ]);
-
-        return $drive;
     }
 }

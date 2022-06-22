@@ -4,7 +4,7 @@ namespace App\Containers\AppSection\Drive\UI\API\Controllers;
 
 use Apiato\Core\Exceptions\CoreInternalErrorException;
 use Apiato\Core\Exceptions\InvalidTransformerException;
-use App\Containers\AppSection\Drive\Actions\CRUD\GetAllDrivesAction;
+use App\Containers\AppSection\Drive\Actions\GetAllDrivesAction;
 use App\Containers\AppSection\Drive\UI\API\Requests\GetAllDrivesRequest;
 use App\Containers\AppSection\Drive\UI\API\Transformers\DriveTransformer;
 use App\Ship\Parents\Controllers\ApiController;

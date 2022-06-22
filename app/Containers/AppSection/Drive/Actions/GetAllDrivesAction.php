@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Containers\AppSection\Drive\Actions\CRUD;
+namespace App\Containers\AppSection\Drive\Actions;
 
 use Apiato\Core\Exceptions\CoreInternalErrorException;
 use App\Containers\AppSection\Drive\Tasks\GetAllDrivesTask;
