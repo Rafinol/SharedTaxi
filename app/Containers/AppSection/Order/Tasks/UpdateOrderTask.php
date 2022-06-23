@@ -9,6 +9,7 @@ use App\Ship\Exceptions\UpdateResourceFailedException;
 use App\Ship\Parents\Tasks\Task as ParentTask;
 use Exception;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
+use Illuminate\Support\Facades\Log;
 
 class UpdateOrderTask extends ParentTask
 {
@@ -27,7 +28,8 @@ class UpdateOrderTask extends ParentTask
             return $this->repository->update($data, $id);
         } catch (ModelNotFoundException) {
             throw new NotFoundException();
-        } catch (Exception) {
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
             throw new UpdateResourceFailedException();
         }
     }

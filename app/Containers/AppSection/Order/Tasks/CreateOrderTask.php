@@ -7,6 +7,7 @@ use App\Containers\AppSection\Order\Models\Order;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Tasks\Task as ParentTask;
 use Exception;
+use Illuminate\Support\Facades\Log;
 
 class CreateOrderTask extends ParentTask
 {
@@ -22,7 +23,8 @@ class CreateOrderTask extends ParentTask
     {
         try {
             return $this->repository->create($data);
-        } catch (Exception) {
+        } catch (Exception $e) {
+            Log::error($e->getMessage());
             throw new CreateResourceFailedException();
         }
     }

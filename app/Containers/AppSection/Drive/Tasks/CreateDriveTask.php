@@ -7,6 +7,7 @@ use App\Containers\AppSection\Drive\Models\Drive;
 use App\Ship\Exceptions\CreateResourceFailedException;
 use App\Ship\Parents\Tasks\Task as ParentTask;
 use Exception;
+use Illuminate\Support\Facades\Log;
 
 class CreateDriveTask extends ParentTask
 {
@@ -27,6 +28,7 @@ class CreateDriveTask extends ParentTask
             );
             return $this->repository->create($data);
         } catch (Exception $e) {
+            Log::error($e->getMessage());
             throw new CreateResourceFailedException();
         }
     }

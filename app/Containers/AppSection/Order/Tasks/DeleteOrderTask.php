@@ -26,7 +26,7 @@ class DeleteOrderTask extends ParentTask
             return $this->repository->delete($id);
         } catch (ModelNotFoundException) {
             throw new NotFoundException();
-        } catch (Exception) {
+        } catch (Exception $e) {
             throw new DeleteResourceFailedException();
         }
     }
